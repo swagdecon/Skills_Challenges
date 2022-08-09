@@ -14,6 +14,7 @@ method takes a string, returns a boolean depending on whether or not the string 
 the .include? method will be useful here
 
 
+
 3. Create Examples as Tests
 Make a list of examples of what the method will take and return.
 
@@ -24,7 +25,6 @@ task_tracker('#ToDo') => returns false
 task_tracker('some other string') => returns false
 task_tracker('#todo') => returns false
 task_tracker('') => returns false
-
 
 
 4. Implement the Behaviour

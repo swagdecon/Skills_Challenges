@@ -4,18 +4,18 @@ class LetterCounter
   end
 
   def calculate_most_common()
-    counter = Hash.new(1) #{} CODEOK
+    counter = Hash.new(0) #{'D'=> 1} 
    
     most_common = nil # Actual letter CODEOK
-    most_common_count = 1 # num of times repeated CODEOK
-    @text.chars.each do |char| #["D", "i", "g", "i", "t", "a", "l", " ", "P", "u", "n", "k"] CODEOK
-      next unless is_letter?(char) # Goes to next char unless char = letter from a-z CODEERR
-      counter[char] +=1  # Counter[char] = 2  CODEER
 
-      if counter[char] > most_common_count # If counter[char] = 2 > most_common_count = 3 CODEER
-        most_common = char # Most common ('D') = char ('D') CODEER
-        most_common_count += counter[char] # most_common_count(3) += counter[char] (2) =  most_common_count = 5 CODEER
-        binding.irb
+    most_common_count = 0 # num of times repeated 
+
+    @text.chars.each do |char| #["D", "i", "g", "i", "t", "a", "l", " ", "P", "u", "n", "k"] CODEOK
+        next unless is_letter?(char) 
+        counter[char] = (counter[char] || 0) + 1 #counter[char] = 2 
+      if counter[char] > most_common_count + 1 #counter[char] = 2 && most_common_count = 2
+        most_common = char 
+        most_common_count += counter[char] 
       end
 
     end
@@ -25,7 +25,7 @@ class LetterCounter
   private
 
   def is_letter?(letter)
-    return letter =~ /[a-zA-Z]/i # checks whether the arg(letter) is a letter from a-zA-Z CODEOK
+    return letter =~ /[a-z]/i # checks whether the arg(letter) is a letter from a-zA-Z CODEOK
   end
 end
 
